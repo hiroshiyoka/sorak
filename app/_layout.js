@@ -1,6 +1,12 @@
-import Slot from "expo-router/Slot";
+import { View } from "react-native";
+import { Slot } from "expo-router";
 
-// Import your global CSS file
-import "../global.css";
+const _layout = () => {
+  return (
+    <View>
+      <Slot />
+    </View>
+  );
+};
 
-export default Slot;
+export default _layout;
