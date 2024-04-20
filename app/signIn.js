@@ -61,6 +61,7 @@ const signIn = () => {
             >
               <Octicons name="mail" size={hp(2.7)} color="gray" />
               <TextInput
+                onChangeText={(value) => (emailRef.current = value)}
                 style={{ fontSize: hp(2) }}
                 className="flex-1 font-semibold text-neutral-700"
                 placeholder="Email Address"
