@@ -2,7 +2,7 @@ import { View, Text } from "react-native";
 
 const signIn = () => {
   return (
-    <View>
+    <View className="pt-20">
       <Text>signIn</Text>
     </View>
   );
