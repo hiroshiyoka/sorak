@@ -81,6 +81,7 @@ const signIn = () => {
                   style={{ fontSize: hp(2) }}
                   className="flex-1 font-semibold text-neutral-700"
                   placeholder="Password"
+                  secureTextEntry
                   placeholderTextColor={"gray"}
                 />
               </View>
