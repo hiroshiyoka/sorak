@@ -1,6 +1,6 @@
 import { Octicons } from "@expo/vector-icons";
 import { StatusBar } from "expo-status-bar";
-import { View, Image, TextInput, Text } from "react-native";
+import { View, Image, TextInput, Text, TouchableOpacity } from "react-native";
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
@@ -69,6 +69,19 @@ const signIn = () => {
                 Forgot Password?
               </Text>
             </View>
+
+            {/* Submit Button */}
+            <TouchableOpacity
+              style={{ height: hp(6.5) }}
+              className="bg-indigo-500 rounded-xl justify-center items-center"
+            >
+              <Text
+                style={{ fontSize: hp(2.7) }}
+                className="text-white font-bold tracking-wider"
+              >
+                Sign In
+              </Text>
+            </TouchableOpacity>
           </View>
         </View>
       </View>
