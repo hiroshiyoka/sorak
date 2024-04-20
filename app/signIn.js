@@ -77,6 +77,7 @@ const signIn = () => {
               >
                 <Octicons name="lock" size={hp(2.7)} color="gray" />
                 <TextInput
+                  onChangeText={(value) => (passwordRef.current = value)}
                   style={{ fontSize: hp(2) }}
                   className="flex-1 font-semibold text-neutral-700"
                   placeholder="Password"
