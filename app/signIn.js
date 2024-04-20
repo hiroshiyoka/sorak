@@ -1,6 +1,6 @@
 import { Octicons } from "@expo/vector-icons";
 import { StatusBar } from "expo-status-bar";
-import { View, Image, TextInput } from "react-native";
+import { View, Image, TextInput, Text } from "react-native";
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
@@ -32,6 +32,7 @@ const signIn = () => {
           </Text>
           {/* Inputs */}
           <View className="gap-4">
+            {/* Email Input */}
             <View
               style={{ height: hp(7) }}
               className="flex-row gap-4 px-4 bg-neutral-100 items-center rounded-xl"
@@ -45,17 +46,28 @@ const signIn = () => {
               />
             </View>
 
-            <View
-              style={{ height: hp(7) }}
-              className="flex-row gap-4 px-4 bg-neutral-100 items-center rounded-xl"
-            >
-              <Octicons name="lock" size={hp(2.7)} color="gray" />
-              <TextInput
-                style={{ fontSize: hp(2) }}
-                className="flex-1 font-semibold text-neutral-700"
-                placeholder="Password"
-                placeholderTextColor={"gray"}
-              />
+            {/* Password Input */}
+            <View className="gap-3">
+              <View
+                style={{ height: hp(7) }}
+                className="flex-row gap-4 px-4 bg-neutral-100 items-center rounded-xl"
+              >
+                <Octicons name="lock" size={hp(2.7)} color="gray" />
+                <TextInput
+                  style={{ fontSize: hp(2) }}
+                  className="flex-1 font-semibold text-neutral-700"
+                  placeholder="Password"
+                  placeholderTextColor={"gray"}
+                />
+              </View>
+
+              {/* Forgot Password */}
+              <Text
+                style={{ fontSize: hp(1.8) }}
+                className="font-semibold text-right text-neutral-500"
+              >
+                Forgot Password?
+              </Text>
             </View>
           </View>
         </View>
