@@ -96,6 +96,7 @@ const signIn = () => {
 
             {/* Submit Button */}
             <TouchableOpacity
+              onPress={handleLogin}
               style={{ height: hp(6.5) }}
               className="bg-indigo-500 rounded-xl justify-center items-center"
             >
