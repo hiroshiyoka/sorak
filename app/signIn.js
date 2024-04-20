@@ -1,4 +1,5 @@
 import { Octicons } from "@expo/vector-icons";
+import { useRouter } from "expo-router";
 import { StatusBar } from "expo-status-bar";
 import {
   View,
@@ -14,6 +15,8 @@ import {
 } from "react-native-responsive-screen";
 
 const signIn = () => {
+  const router = useRouter();
+
   return (
     <View className="flex-1">
       <StatusBar style="dark" />
@@ -98,7 +101,7 @@ const signIn = () => {
               >
                 Don't have an account?{" "}
               </Text>
-              <Pressable>
+              <Pressable onPress={() => router.push("signUp")}>
                 <Text
                   style={{ fontSize: hp(1.8) }}
                   className="font-bold text-indigo-500"
