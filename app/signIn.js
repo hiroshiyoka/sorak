@@ -1,6 +1,13 @@
 import { Octicons } from "@expo/vector-icons";
 import { StatusBar } from "expo-status-bar";
-import { View, Image, TextInput, Text, TouchableOpacity } from "react-native";
+import {
+  View,
+  Image,
+  TextInput,
+  Text,
+  TouchableOpacity,
+  Pressable,
+} from "react-native";
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
@@ -82,6 +89,24 @@ const signIn = () => {
                 Sign In
               </Text>
             </TouchableOpacity>
+
+            {/* Sign Up Field */}
+            <View className="flex-row justify-center">
+              <Text
+                style={{ fontSize: hp(1.8) }}
+                className="font-semibold text-neutral-500"
+              >
+                Don't have an account?{" "}
+              </Text>
+              <Pressable>
+                <Text
+                  style={{ fontSize: hp(1.8) }}
+                  className="font-bold text-indigo-500"
+                >
+                  Sign Up
+                </Text>
+              </Pressable>
+            </View>
           </View>
         </View>
       </View>
