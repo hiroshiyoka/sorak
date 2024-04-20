@@ -1,6 +1,7 @@
 import { Octicons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
 import { StatusBar } from "expo-status-bar";
+import { useRef } from "react";
 import {
   View,
   Image,
@@ -8,6 +9,7 @@ import {
   Text,
   TouchableOpacity,
   Pressable,
+  Alert,
 } from "react-native";
 import {
   widthPercentageToDP as wp,
@@ -16,6 +18,16 @@ import {
 
 const signIn = () => {
   const router = useRouter();
+
+  const emailRef = useRef("");
+  const passwordRef = useRef("");
+
+  const handleLogin = async () => {
+    if (!emailRef.current || !passwordRef.current) {
+      Alert.alert("Sign In", "Please fill all the fields");
+      return;
+    }
+  };
 
   return (
     <View className="flex-1">
