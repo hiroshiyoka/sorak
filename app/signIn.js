@@ -16,6 +16,7 @@ import {
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
 import Loading from "@/components/Loading";
+import CustomKeyboardView from "@/components/CustomKeyboardView";
 
 const signIn = () => {
   const router = useRouter();
@@ -32,7 +33,7 @@ const signIn = () => {
   };
 
   return (
-    <View className="flex-1">
+    <CustomKeyboardView>
       <StatusBar style="dark" />
       <View
         style={{ paddingTop: hp(8), paddingHorizontal: wp(5) }}
@@ -139,7 +140,7 @@ const signIn = () => {
           </View>
         </View>
       </View>
-    </View>
+    </CustomKeyboardView>
   );
 };
 
