@@ -1,7 +1,7 @@
 import { Octicons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
 import { StatusBar } from "expo-status-bar";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import {
   View,
   Image,
@@ -15,9 +15,11 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
+import Loading from "@/components/Loading";
 
 const signIn = () => {
   const router = useRouter();
+  const [loading, setLoading] = useState(false);
 
   const emailRef = useRef("");
   const passwordRef = useRef("");
@@ -96,18 +98,26 @@ const signIn = () => {
             </View>
 
             {/* Submit Button */}
-            <TouchableOpacity
-              onPress={handleLogin}
-              style={{ height: hp(6.5) }}
-              className="bg-indigo-500 rounded-xl justify-center items-center"
-            >
-              <Text
-                style={{ fontSize: hp(2.7) }}
-                className="text-white font-bold tracking-wider"
-              >
-                Sign In
-              </Text>
-            </TouchableOpacity>
+            <View>
+              {loading ? (
+                <View className="flex-row justify-center">
+                  <Loading size={hp(6.5)} />
+                </View>
+              ) : (
+                <TouchableOpacity
+                  onPress={handleLogin}
+                  style={{ height: hp(6.5) }}
+                  className="bg-indigo-500 rounded-xl justify-center items-center"
+                >
+                  <Text
+                    style={{ fontSize: hp(2.7) }}
+                    className="text-white font-bold tracking-wider"
+                  >
+                    Sign In
+                  </Text>
+                </TouchableOpacity>
+              )}
+            </View>
 
             {/* Sign Up Field */}
             <View className="flex-row justify-center">
