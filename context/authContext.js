@@ -2,6 +2,7 @@ import { auth, db } from "@/firebaseConfig";
 import {
   createUserWithEmailAndPassword,
   onAuthStateChanged,
+  signOut,
 } from "firebase/auth";
 import { doc, setDoc } from "firebase/firestore";
 import { createContext, useContext, useEffect, useState } from "react";
@@ -33,7 +34,15 @@ export const AuthContextProvider = ({ children }) => {
 
   const logout = async () => {
     try {
-    } catch (error) {}
+      await signOut(auth);
+      return { success: true };
+    } catch (error) {
+      return {
+        success: false,
+        message: error.message,
+        error: error,
+      };
+    }
   };
 
   const register = async (username, email, password, profileUrl) => {
