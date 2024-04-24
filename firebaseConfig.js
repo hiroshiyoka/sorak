@@ -4,7 +4,7 @@ import { initializeApp } from "firebase/app";
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 import { getReactNativePersistance, initializeAuth } from "firebase/auth";
-import { getFirestore } from "firebase/firestore";
+import { collection, getFirestore } from "firebase/firestore";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 // Your web app's Firebase configuration
@@ -25,3 +25,6 @@ export const auth = initializeAuth(app, {
 });
 
 export const db = getFirestore(app);
+
+export const userRef = collection(db, "users");
+export const roomRef = collection(db, "rooms");
