@@ -62,7 +62,9 @@ export const AuthContextProvider = ({ children }) => {
       return { success: true, data: response?.user };
     } catch (error) {
       let message = error.message;
-      if (message.includes("(auth/invalid0email)")) message = "Invalid Email";
+      if (message.includes("(auth/invalid-email)")) message = "Invalid Email";
+      if (message.includes("(auth/email-already-in-use)"))
+        message = "This email is already in use";
       return { success: false, message };
     }
   };
