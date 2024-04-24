@@ -1,5 +1,9 @@
-import { auth } from "@/firebaseConfig";
-import { onAuthStateChanged } from "firebase/auth";
+import { auth, db } from "@/firebaseConfig";
+import {
+  createUserWithEmailAndPassword,
+  onAuthStateChanged,
+} from "firebase/auth";
+import { doc, setDoc } from "firebase/firestore";
 import { createContext, useContext, useEffect, useState } from "react";
 
 export const AuthContext = createContext();
@@ -34,7 +38,24 @@ export const AuthContextProvider = ({ children }) => {
 
   const register = async (username, email, password, profileUrl) => {
     try {
-    } catch (error) {}
+      const response = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+
+      await setDoc(doc(db, "users", response?.user?.uid), {
+        username,
+        profileUrl,
+        userId: response?.user?.uid,
+      });
+
+      return { success: true, data: response?.user };
+    } catch (error) {
+      let message = error.message;
+      if (message.includes("(auth/invalid0email)")) message = "Invalid Email";
+      return { success: false, message };
+    }
   };
 
   return (
