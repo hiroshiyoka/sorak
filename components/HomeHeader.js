@@ -1,4 +1,6 @@
-import { View, Text } from "react-native";
+import { View, Text, Platform } from "react-native";
+
+const ios = Platform.OS == "ios";
 
 const HomeHeader = () => {
   return (
