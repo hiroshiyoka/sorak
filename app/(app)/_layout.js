@@ -5,7 +5,7 @@ const Layout = () => {
   return (
     <Stack>
       <Stack.Screen
-        name="home"
+        name="Home"
         options={{
           header: () => <HomeHeader />,
         }}
