@@ -2,6 +2,7 @@ import { auth, db } from "@/firebaseConfig";
 import {
   createUserWithEmailAndPassword,
   onAuthStateChanged,
+  signInWithEmailAndPassword,
   signOut,
 } from "firebase/auth";
 import { doc, setDoc } from "firebase/firestore";
@@ -29,7 +30,13 @@ export const AuthContextProvider = ({ children }) => {
 
   const login = async (email, password) => {
     try {
-    } catch (error) {}
+      const response = await signInWithEmailAndPassword(auth, email, password);
+      return { success: true };
+    } catch (error) {
+      let message = error.message;
+      if (message.includes("(auth/invalid-email)")) message = "Invalid Email";
+      return { success: false, message };
+    }
   };
 
   const logout = async () => {
