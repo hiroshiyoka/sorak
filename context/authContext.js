@@ -35,6 +35,8 @@ export const AuthContextProvider = ({ children }) => {
     } catch (error) {
       let message = error.message;
       if (message.includes("(auth/invalid-email)")) message = "Invalid Email";
+      if (message.includes("(auth/invalid-credential)"))
+        message = "Wrong credential!";
       return { success: false, message };
     }
   };
