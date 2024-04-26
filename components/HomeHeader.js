@@ -4,6 +4,12 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { heightPercentageToDP as hp } from "react-native-responsive-screen";
 import { useAuth } from "@/context/authContext";
 import { blurhash } from "@/utils/common";
+import {
+  Menu,
+  MenuOption,
+  MenuOptions,
+  MenuTrigger,
+} from "react-native-popup-menu";
 
 const ios = Platform.OS == "ios";
 
@@ -23,12 +29,29 @@ const HomeHeader = () => {
       </View>
 
       <View>
-        <Image
-          style={{ height: hp(4.3), aspectRatio: 1, borderRadius: 100 }}
-          source={user?.profileUrl}
-          placeholder={blurhash}
-          transition={500}
-        />
+        {/* Menu */}
+        <Menu>
+          <MenuTrigger>
+            {/* Image */}
+            <Image
+              style={{ height: hp(4.3), aspectRatio: 1, borderRadius: 100 }}
+              source={user?.profileUrl}
+              placeholder={blurhash}
+              transition={500}
+            />
+          </MenuTrigger>
+          <MenuOptions>
+            <MenuOption onSelect={() => alert(`Save`)} text="Save" />
+            <MenuOption onSelect={() => alert(`Delete`)}>
+              <Text style={{ color: "red" }}>Delete</Text>
+            </MenuOption>
+            <MenuOption
+              onSelect={() => alert(`Not called`)}
+              disabled={true}
+              text="Disabled"
+            />
+          </MenuOptions>
+        </Menu>
       </View>
     </View>
   );
