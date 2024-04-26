@@ -13,10 +13,9 @@ const HomeHeader = () => {
       className="flex-row justify-between px-5 bg-indigo-400 pb-6 rounded-b-3xl shadow"
     >
       <View>
-        <Text
-          style={{ fontSize: hp(3) }}
-          className="font-medium text-white"
-        ></Text>
+        <Text style={{ fontSize: hp(3) }} className="font-medium text-white">
+          Chats
+        </Text>
       </View>
     </View>
   );
