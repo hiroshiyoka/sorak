@@ -48,7 +48,7 @@ const HomeHeader = () => {
               value={null}
               icon={<Feather name="user" size={hp(2.5)} color="#737373" />}
             />
-
+            <Divider />
             {/* Sign Out */}
             <MenuItem
               text="Sign Out"
@@ -64,3 +64,7 @@ const HomeHeader = () => {
 };
 
 export default HomeHeader;
+
+const Divider = () => {
+  return <View className="p-[1px] w-full bg-neutral-200" />;
+};
