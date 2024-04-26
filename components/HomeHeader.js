@@ -11,8 +11,12 @@ import { AntDesign, Feather } from "@expo/vector-icons";
 const ios = Platform.OS == "ios";
 
 const HomeHeader = () => {
-  const { user } = useAuth();
+  const { user, logout } = useAuth();
   const { top } = useSafeAreaInsets();
+
+  const handleLogout = async () => {
+    await logout();
+  };
 
   return (
     <View
@@ -48,6 +52,7 @@ const HomeHeader = () => {
             {/* Sign Out */}
             <MenuItem
               text="Sign Out"
+              action={handleLogout}
               value={null}
               icon={<AntDesign name="logout" size={hp(2.5)} color="#737373" />}
             />
