@@ -4,12 +4,8 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { heightPercentageToDP as hp } from "react-native-responsive-screen";
 import { useAuth } from "@/context/authContext";
 import { blurhash } from "@/utils/common";
-import {
-  Menu,
-  MenuOption,
-  MenuOptions,
-  MenuTrigger,
-} from "react-native-popup-menu";
+import { Menu, MenuOptions, MenuTrigger } from "react-native-popup-menu";
+import { MenuItem } from "./CustomMenuItems";
 
 const ios = Platform.OS == "ios";
 
@@ -41,14 +37,10 @@ const HomeHeader = () => {
             />
           </MenuTrigger>
           <MenuOptions>
-            <MenuOption onSelect={() => alert(`Save`)} text="Save" />
-            <MenuOption onSelect={() => alert(`Delete`)}>
-              <Text style={{ color: "red" }}>Delete</Text>
-            </MenuOption>
-            <MenuOption
-              onSelect={() => alert(`Not called`)}
-              disabled={true}
-              text="Disabled"
+            <MenuItem
+              text="Profile"
+              value={null}
+              icon={<Feather name="user" size={hp(2.5)} color="#737373" />}
             />
           </MenuOptions>
         </Menu>
