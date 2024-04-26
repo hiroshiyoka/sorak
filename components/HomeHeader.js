@@ -1,8 +1,9 @@
+import { Image } from "expo-image";
 import { View, Text, Platform } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { heightPercentageToDP as hp } from "react-native-responsive-screen";
 import { useAuth } from "@/context/authContext";
-import { Image } from "expo-image";
+import { blurhash } from "@/utils/common";
 
 const ios = Platform.OS == "ios";
 
