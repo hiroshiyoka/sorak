@@ -6,6 +6,7 @@ import { useAuth } from "@/context/authContext";
 import { blurhash } from "@/utils/common";
 import { Menu, MenuOptions, MenuTrigger } from "react-native-popup-menu";
 import { MenuItem } from "./CustomMenuItems";
+import { AntDesign, Feather } from "@expo/vector-icons";
 
 const ios = Platform.OS == "ios";
 
@@ -37,10 +38,18 @@ const HomeHeader = () => {
             />
           </MenuTrigger>
           <MenuOptions>
+            {/* Profile */}
             <MenuItem
               text="Profile"
               value={null}
               icon={<Feather name="user" size={hp(2.5)} color="#737373" />}
+            />
+
+            {/* Sign Out */}
+            <MenuItem
+              text="Sign Out"
+              value={null}
+              icon={<AntDesign name="logout" size={hp(2.5)} color="#737373" />}
             />
           </MenuOptions>
         </Menu>
