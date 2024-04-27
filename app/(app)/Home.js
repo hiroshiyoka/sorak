@@ -1,11 +1,23 @@
 import ChatList from "@/components/ChatList";
+import { useAuth } from "@/context/authContext";
 import { StatusBar } from "expo-status-bar";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ActivityIndicator, View } from "react-native";
 import { heightPercentageToDP as hp } from "react-native-responsive-screen";
 
 const Home = () => {
+  const { user } = useAuth();
   const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    if (user?.uid) {
+      getUsers();
+    }
+  });
+
+  const getUsers = async () => {
+    // Fetch Users from Database
+  };
 
   return (
     <View className="flex-1 bg-white">
